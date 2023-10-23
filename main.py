@@ -41,7 +41,7 @@ while not boardIsFull():
     displayBoard(board)
     move=int(input("Enter the coordinates of your move: "))
     if not checkValidMove(board, move):
-        print("Invald move")
+        print("Invalid move")
         continue
     board[move]='O'
     if winner:=checkWinner(board):
