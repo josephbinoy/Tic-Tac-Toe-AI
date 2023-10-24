@@ -1,5 +1,6 @@
 from ai import *
 from os import *
+from time import *
 
 board=[' ',' ',' ',
        ' ',' ',' ',
@@ -42,6 +43,7 @@ while not boardIsFull():
     move=int(input("Enter the coordinates of your move: "))
     if not checkValidMove(board, move):
         print("Invalid move")
+        sleep(1)
         continue
     board[move]='O'
     if winner:=checkWinner(board):
