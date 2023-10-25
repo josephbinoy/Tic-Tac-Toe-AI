@@ -1,9 +1,7 @@
-#the minimax function. It starts the recursive chain, calling minvalue and maxvalue alternatively till leaf node reached and returns the index of the best move.
-#why minvalue first? 
-#computer is the 'max' player, human is the 'min' player. So it needs to calculate the maximum score from its children
-#and since the children represent human's move, we need to calculate minimum score of the children's children (computer's granchildren).
-#again the grandchildren will need to calculate maximum score of THEIR children as its the computer's turn then.
-#this chain continues till leaf node is reached
+#the minimax function. Basically the same as maxvalue function, only difference is it returns the best move index instead of the score.
+#it starts the recursive chain, calling minvalue and maxvalue alternatively till leaf node reached, keeping track of node with max score.
+#if two nodes have same score, it chooses the one with least depth/cost.
+#then it returns the index of the best move.
 def getComputerMove(board):
     actionList=actions(board)
     bestValue=-9999
@@ -116,7 +114,7 @@ def terminal(board):
     return False
     
 
-#function that returns all allowed moves in given position in the form (player_name, board_index)
+#function that returns all allowed moves in given position in the form (player_name, move)
 def actions(board):
     player=getPlayer(board)
     allowedMovesList=[]
